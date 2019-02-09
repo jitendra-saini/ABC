@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home_white"
+            android:title="Home" />
+        <item
+            android:id="@+id/my_profile"
+            android:icon="@drawable/ic_person"
+            android:title="My Profile" />
+        <item
+            android:id="@+id/my_activities"
+            android:icon="@drawable/activities"
+            android:title="My Activities" />
+        <item
+            android:id="@+id/notification"
+            android:icon="@drawable/ic_notifications_active_black_24dp"
+            android:title="Notification" />
+        <item
+            android:id="@+id/contact_us"
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="Contact Us" />
+    </group>
+
+
+
+</menu>
