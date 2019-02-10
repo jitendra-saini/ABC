@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Registration extends AppCompatActivity {
+ public class Registration extends AppCompatActivity {
  SharedPreferences.Editor editor;
  CircleImageView circleImageView;
  EditText name,username,password;

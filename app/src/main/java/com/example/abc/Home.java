@@ -1,9 +1,14 @@
 package com.example.abc;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,12 +18,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
  SharedPreferences sharedPreferences;
  TextView textView,textView1;
+ RecyclerView recyclerView,recyclerView2;
+    ArrayList<MyDataSet> arrayList =new ArrayList<MyDataSet>();
+
+    /*ArrayList<MyItemDataSet> itemList =new ArrayList<MyItemDataSet>();*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +40,13 @@ public class Home extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle("ABC");
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+
+
+
+        addData();
+
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +65,24 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        recyclerView=findViewById(R.id.recyclerView);
+        /*LayoutInflater li = LayoutInflater.from(this);
+        ConstraintLayout mLayout = (ConstraintLayout) li.inflate(R.layout.recyclerview_resource,null);
+        recyclerView2 = mLayout.findViewById(R.id.recyclerView2);
+*/
+
+       /* RecyclerView.Adapter adapter1=new Item_Recycler_Adapter(this,itemList);
+        recyclerView2.setAdapter(adapter1);
+*/
+
+
+
+
+
+         RecyclerView.Adapter adapter= new Recyclerview_Adapter(this,arrayList);
+        recyclerView.setAdapter(adapter);
+        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
         textView=navigationView.getHeaderView(0).findViewById(R.id.name);
         textView1=navigationView.getHeaderView(0).findViewById(R.id.username);
@@ -81,6 +119,9 @@ public class Home extends AppCompatActivity
 
         } else if (id == R.id.contact_us) {
 
+        }else if (id==R.id.question){
+            Intent intent =new Intent(this,Question.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,4 +148,20 @@ public class Home extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+    public void addData(){
+
+
+      arrayList.add(new MyDataSet(R.drawable.chris_evans,"chris evans","Who is your favourite music artist ?"));
+      arrayList.add(new MyDataSet(R.drawable.chris_hemsworth,"chris hemsworth","Who is your favourite actor ?"));
+      arrayList.add(new MyDataSet(R.drawable.robert_doweny,"robert doweny jr","Who is your favourite singer ?"));
+      arrayList.add(new MyDataSet(R.drawable.thor_k,"thor","Who is your favourite music artist ?"));
+      arrayList.add(new MyDataSet(R.drawable.thor_little,"odinson","Who is your favourite music artist ?"));
+      arrayList.add(new MyDataSet(R.drawable.arijit_singh,"arijit singh","Who is your favourite music artist ?"));
+      arrayList.add(new MyDataSet(R.drawable.chris_evans,"chris evans","Who is your favourite music artist ?"));
+
+
+
+    }
+
+
 }
