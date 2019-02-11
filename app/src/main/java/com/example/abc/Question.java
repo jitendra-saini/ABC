@@ -1,23 +1,27 @@
 package com.example.abc;
 
-import android.app.ActionBar;
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Question extends AppCompatActivity {
 
     ArrayList<Question_cat> cat=new ArrayList<Question_cat>();
+    ArrayList<Question_cat> questionCatList;
     RecyclerView.Adapter adapter;
+    private final String TAG="Question";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,32 +35,20 @@ public class Question extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        RecyclerView recyclerView=findViewById(R.id.recyclerView3);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
-         adapter=new Question_Recycler_view(cat,this);
-         recyclerView.setAdapter(adapter);
-
-         cat.add(new Question_cat("science",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("fashion",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("Education",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("Travel",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("History",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("Business",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("politics",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("economic",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("technology",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("language",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("my city",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("my country",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("Health",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("science",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("science",R.drawable.ic_menu_camera));
-         cat.add(new Question_cat("science",R.drawable.ic_menu_camera));
+        RecyclerView recyclerView = findViewById(R.id.recyclerView3);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+        adapter = new Question_Recycler_view(cat, this);
 
 
+        recyclerView.setAdapter(adapter);
 
 
+      addData();
     }
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,11 +64,50 @@ public class Question extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.search_badge) {
-            Intent intent =new Intent(this,Next_step.class);
+        if (id == R.id.next) {
+
+
+            questionCatList=((Question_Recycler_view) adapter).getSelecteds();
+
+
+            Log.e(TAG, "questionCatList: "+questionCatList );
+
+            Intent intent=new Intent(this,Next_step.class);
+            intent.putExtra("BUNDLE",(Serializable)questionCatList);
             startActivity(intent);
+
+
+
+        }
+        else if(id==android.R.id.home)
+        {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+    public void addData(){
+
+
+        cat.add(new Question_cat("science"));
+        cat.add(new Question_cat("fashion"));
+        cat.add(new Question_cat("Education"));
+        cat.add(new Question_cat("Travel"));
+        cat.add(new Question_cat("History"));
+        cat.add(new Question_cat("Business"));
+        cat.add(new Question_cat("politics"));
+        cat.add(new Question_cat("economic"));
+        cat.add(new Question_cat("technology"));
+        cat.add(new Question_cat("language"));
+        cat.add(new Question_cat("my city"));
+        cat.add(new Question_cat("my country"));
+        cat.add(new Question_cat("Health"));
+        cat.add(new Question_cat("science"));
+
+
+    }
+
+
+
 }

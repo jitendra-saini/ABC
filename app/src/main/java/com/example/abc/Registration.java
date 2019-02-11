@@ -155,6 +155,5 @@ import de.hdodenhof.circleimageview.CircleImageView;
                 }
             });
 
-
         }*/
 }

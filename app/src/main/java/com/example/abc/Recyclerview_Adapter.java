@@ -38,11 +38,6 @@ public class Recyclerview_Adapter extends RecyclerView.Adapter<Recyclerview_Adap
         myViewHolder.imageView.setImageResource(arrayList.get(i).getProfile_image());
         myViewHolder.textView.setText(arrayList.get(i).getF_name());
         myViewHolder.textView1.setText(arrayList.get(i).getPost_details());
-        RecyclerView.Adapter adapter1=new Item_Recycler_Adapter(context,itemList);
-        myViewHolder.recyclerView2.setAdapter(adapter1);
-        myViewHolder.recyclerView2.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true));
-
-        addItemData();
 
 
     }
@@ -64,6 +59,12 @@ public class Recyclerview_Adapter extends RecyclerView.Adapter<Recyclerview_Adap
             textView=itemView.findViewById(R.id.textview33);
             textView1=itemView.findViewById(R.id.textView4);
             recyclerView2=itemView.findViewById(R.id.recyclerView2);
+            RecyclerView.Adapter adapter1=new Item_Recycler_Adapter(context,itemList);
+            recyclerView2.setAdapter(adapter1);
+            recyclerView2.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+
+            addItemData();
+
         }
     }
 

@@ -1,13 +1,16 @@
 package com.example.abc;
 
-public class Question_cat {
+import java.io.Serializable;
+
+public class Question_cat implements Serializable {
 
     String cat;
-    int cat_image;
 
-    public Question_cat(String cat, int cat_image) {
+    boolean isSelected =false;
+
+    public Question_cat(String cat) {
         this.cat = cat;
-        this.cat_image = cat_image;
+
     }
 
     public String getCat() {
@@ -18,11 +21,23 @@ public class Question_cat {
         this.cat = cat;
     }
 
-    public int getCat_image() {
-        return cat_image;
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
-    public void setCat_image(int cat_image) {
-        this.cat_image = cat_image;
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Question_cat{" +
+                "cat='" + cat + '\'' +
+
+                ", isSelected=" + isSelected +
+                '}';
     }
 }

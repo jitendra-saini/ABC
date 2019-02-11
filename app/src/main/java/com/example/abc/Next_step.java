@@ -1,19 +1,23 @@
 package com.example.abc;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.io.Serializable;
+
+import java.util.ArrayList;
 
 public class Next_step extends AppCompatActivity {
-
+ ArrayList<Question_cat> C=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next_step);
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -22,11 +26,16 @@ public class Next_step extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+
+        //Intent intent = getIntent();
+
+        ArrayList<String> myList = (ArrayList<String>) getIntent().getSerializableExtra("BUNDLE");
+             Log.e("jkkjdkj", String.valueOf(myList));
+
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,11 +51,15 @@ public class Next_step extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.search_badge) {
+        if (id == R.id.next) {
             Intent intent =new Intent(this,Next_step.class);
             startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
+
+
+
+
     }
 }
