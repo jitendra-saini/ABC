@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -33,7 +36,16 @@ public class Next_step extends AppCompatActivity {
         //Intent intent = getIntent();
 
         ArrayList<String> myList = (ArrayList<String>) getIntent().getSerializableExtra("BUNDLE");
-             Log.e("jkkjdkj", String.valueOf(myList));
+
+
+
+        RecyclerView recyclerView=findViewById(R.id.finalRecyclerview);
+        RecyclerView.Adapter adapter1=new Final_Adapter(this,myList);
+        recyclerView.setAdapter(adapter1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+
+        Log.e("jkkjdkj", String.valueOf(myList));
 
     }
 

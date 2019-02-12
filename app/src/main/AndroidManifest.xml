@@ -13,16 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Next_step"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Question"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+        <activity android:name=".ContactUS"></activity>
+        <activity android:name=".MapActivity" />
+        <activity
+            android:name=".Next_step"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Question"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.abc.Home" />
         </activity>
-
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
