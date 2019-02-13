@@ -91,6 +91,12 @@ public class Home extends AppCompatActivity
         textView1.setText(sharedPreferences.getString("name",null));
 
 
+       /* View view= LayoutInflater.from(this).inflate(R.layout.recyclerview_resource,null,false);
+
+          recyclerView2= view.findViewById(R.id.recyclerView2);
+
+*/
+
     }
 
     @Override

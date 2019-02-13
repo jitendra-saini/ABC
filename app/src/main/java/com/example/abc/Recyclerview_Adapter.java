@@ -59,13 +59,14 @@ public class Recyclerview_Adapter extends RecyclerView.Adapter<Recyclerview_Adap
             textView=itemView.findViewById(R.id.textview33);
             textView1=itemView.findViewById(R.id.textView4);
             recyclerView2=itemView.findViewById(R.id.recyclerView2);
+
+            addItemData();
             RecyclerView.Adapter adapter1=new Item_Recycler_Adapter(context,itemList);
             recyclerView2.setAdapter(adapter1);
             recyclerView2.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
 
-            addItemData();
-
         }
+
     }
 
 
