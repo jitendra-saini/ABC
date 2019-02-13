@@ -118,10 +118,16 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.notification) {
 
         } else if (id == R.id.contact_us) {
+            Intent intent =new Intent(this,ContactUS.class);
+            startActivity(intent);
 
         }else if (id==R.id.question){
             Intent intent =new Intent(this,Question.class);
             startActivity(intent);
+        }else if(id==R.id.map_activity){
+            Intent intent =new Intent(this,MapActivity.class);
+            startActivity(intent);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

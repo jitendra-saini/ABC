@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class Final_Adapter extends RecyclerView.Adapter<Final_Adapter.MyViewHolder> {
    Context context;
-   ArrayList<String> question_catArrayList=new ArrayList<>();
+   ArrayList<Question_cat> question_catArrayList=new ArrayList<>();
 
-    public Final_Adapter(Context context, ArrayList<String> question_catArrayList) {
+    public Final_Adapter(Context context, ArrayList<Question_cat> question_catArrayList) {
         this.context = context;
         this.question_catArrayList = question_catArrayList;
     }
@@ -29,7 +29,7 @@ public class Final_Adapter extends RecyclerView.Adapter<Final_Adapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull Final_Adapter.MyViewHolder myViewHolder, int i) {
 
-       // myViewHolder.textView.setText(question_catArrayList.get(i).getChars(););
+       myViewHolder.textView.setText(question_catArrayList.get(i).getCat());
 
     }
 

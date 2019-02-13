@@ -42,11 +42,12 @@ public class Question_Recycler_view extends RecyclerView.Adapter<Question_Recycl
         myViewHolder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.setSelected(!v.isSelected());
+               // v.setSelected(!v.isSelected());
                 model.setSelected(!model.isSelected);
 
 
-                        myViewHolder.textView.setTextColor(model.isSelected() ? Color.parseColor("#35CEC9" ): Color.parseColor("#000000"));
+                        myViewHolder.textView.setTextColor(model.isSelected() ?
+                                Color.parseColor("#35CEC9" ): Color.parseColor("#000000"));
 
                         if(model.isSelected){
 

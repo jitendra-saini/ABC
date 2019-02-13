@@ -1,17 +1,24 @@
 package com.example.abc;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Question_cat implements Serializable {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+public class Question_cat  implements Serializable {
 
     String cat;
 
-    boolean isSelected =false;
+    boolean isSelected = false;
 
     public Question_cat(String cat) {
         this.cat = cat;
 
     }
+
+
 
     public String getCat() {
         return cat;
@@ -40,4 +47,7 @@ public class Question_cat implements Serializable {
                 ", isSelected=" + isSelected +
                 '}';
     }
+
+
 }
+

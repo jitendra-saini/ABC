@@ -2,6 +2,7 @@ package com.example.abc;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import java.io.Serializable;
 
 import java.util.ArrayList;
@@ -35,15 +38,12 @@ public class Next_step extends AppCompatActivity {
 
         //Intent intent = getIntent();
 
-        ArrayList<String> myList = (ArrayList<String>) getIntent().getSerializableExtra("BUNDLE");
-
-
+       ArrayList<Question_cat> myList = (ArrayList<Question_cat>) getIntent().getSerializableExtra("BUNDLE");
 
         RecyclerView recyclerView=findViewById(R.id.finalRecyclerview);
-        RecyclerView.Adapter adapter1=new Final_Adapter(this,myList);
+        RecyclerView.Adapter adapter1=new Final_Adapter(this, myList);
         recyclerView.setAdapter(adapter1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
 
         Log.e("jkkjdkj", String.valueOf(myList));
 
@@ -64,8 +64,13 @@ public class Next_step extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.next) {
-            Intent intent =new Intent(this,Next_step.class);
+            Toast.makeText(this,"Sent Successfully ",Toast.LENGTH_SHORT).show();
+            Intent intent =new Intent(this,Home.class);
             startActivity(intent);
+        }  else if(id==android.R.id.home)
+        {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

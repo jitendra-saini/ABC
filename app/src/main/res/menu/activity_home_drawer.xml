@@ -29,6 +29,11 @@
            android:title="Post A Question">
 
         </item>
+        <item
+            android:id="@+id/map_activity"
+            android:title="Our location">
+
+        </item>
     </group>
 
 

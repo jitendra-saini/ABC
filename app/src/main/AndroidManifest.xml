@@ -14,10 +14,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ContactUS"></activity>
+
+
+
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDDrdlHTn4GTpg0VJEUlJe3KswjD02mT4Q"></meta-data>
+
         <activity android:name=".MapActivity" />
         <activity
             android:name=".Next_step"
             android:theme="@style/AppTheme.NoActionBar" />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.abc.Question" />
         <activity
             android:name=".Question"
             android:theme="@style/AppTheme.NoActionBar">
