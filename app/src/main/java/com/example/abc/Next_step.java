@@ -24,7 +24,7 @@ public class Next_step extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next_step);
-
+        String TAG="Next_step";
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,7 +45,7 @@ public class Next_step extends AppCompatActivity {
         recyclerView.setAdapter(adapter1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        Log.e("jkkjdkj", String.valueOf(myList));
+        Log.e(TAG, String.valueOf(myList));
 
     }
 
